@@ -1,4 +1,4 @@
-# SENG-401-Project
+# SENG 401 Project
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/joselozano2003/SENG-401-Project?logo=github&color=blue)
 ![GitHub contributors](https://img.shields.io/github/contributors/joselozano2003/SENG-401-Project?logo=github&color=yellow)
