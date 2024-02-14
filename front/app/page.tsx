@@ -1,4 +1,5 @@
 import Hero from "@/components/home/Hero";
+import WalkThrough from "@/components/home/WalkThrough";
 import Image from "next/image";
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
 		<main className="">
 			<div className="">
 				<Hero />
+				<WalkThrough />
 			</div>
 		</main>
 	);
