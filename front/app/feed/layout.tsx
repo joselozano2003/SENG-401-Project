@@ -20,7 +20,9 @@ export default function RootLayout({
             <aside>
                 <SideArea />
             </aside>
-            {children}
+            <div className="pt-[20px] w-full">
+                {children}
+            </div>
         </div>
     );
 }
