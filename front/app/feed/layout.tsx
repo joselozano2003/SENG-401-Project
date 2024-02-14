@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import SideArea from "./components/SideArea";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -9,13 +11,16 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-  return (
-    <div lang="en">
-        {children}
-    </div>
-  );
+    children, }: Readonly<{
+        children: React.ReactNode;
+    }>) {
+
+    return (
+        <div lang="en" className="pt-[60px] flex w-full">
+            <aside>
+                <SideArea />
+            </aside>
+            {children}
+        </div>
+    );
 }

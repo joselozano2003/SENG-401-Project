@@ -13,9 +13,6 @@ import Image from "next/image";
 export default async function Feed() {
     return (
         <div className="pt-[60px] flex w-full">
-            <aside>
-                <SideArea />
-            </aside>
             <div className="flex justify-center w-full">
                 <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">Hello</h1>
             </div>

@@ -6,9 +6,9 @@ export default function MovingText() {
     return (
         <TypeAnimation 
                 sequence={[
-                    'Find a Tutor',
+                    'Find',
                     1500,
-                    'Become a Tutor',
+                    'Become',
                     1500,
                   ]}
                 speed={50}
