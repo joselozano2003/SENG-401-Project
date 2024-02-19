@@ -1,18 +1,15 @@
 package com.example.tutor;
 
-
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import jakarta.annotation.Generated;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
 @Entity
 @Table
-public class TutorModel {
+class TutorModel {
     @Id
     @SequenceGenerator(
         name = "tutor_sequence",
@@ -24,6 +21,19 @@ public class TutorModel {
         generator = "tutor_sequence"
     )
     private Long id;
+    private String name;
+    private String subject;
+    private String email;
+    private String phone;
+
+    public TutorModel(Long id, String name, String subject, String email, String phone) {
+        this.id = id;
+        this.name = name;
+        this.subject = subject;
+        this.email = email;
+        this.phone = phone;
+    }
+
     public Long getId() {
         return id;
     }
@@ -32,51 +42,19 @@ public class TutorModel {
         this.id = id;
     }
 
-    private String name;
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getSubject() {
+        return subject;
     }
 
-    private String email;
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    private String password;
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    private String phone;
-
     public String getPhone() {
         return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public TutorModel() {
-    }
-
-    public TutorModel(Long id, String name, String email, String password, String phone) {
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.phone = phone;
     }
 }
