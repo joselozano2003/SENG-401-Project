@@ -1,4 +1,4 @@
-package com.example.backend.tutor;
+package com.example.tutor;
 
 import org.springframework.stereotype.Service;
 

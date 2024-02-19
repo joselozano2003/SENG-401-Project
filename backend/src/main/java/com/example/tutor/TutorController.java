@@ -1,4 +1,4 @@
-package com.example.backend.tutor;
+package com.example.tutor;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
