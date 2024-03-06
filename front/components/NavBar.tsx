@@ -8,7 +8,7 @@ export default async function NavBar() {
                 <h1 className="text-2xl font-bold">UTutor</h1>
             </div>
             <div>
-                <Link href={"/"}>
+                <Link href={"/login"}>
                     <Button className="text-black" variant={"outline"}>Log In</Button>
                 </Link>
             </div>

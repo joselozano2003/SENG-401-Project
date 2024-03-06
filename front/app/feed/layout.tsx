@@ -16,7 +16,7 @@ export default function RootLayout({
     }>) {
 
     return (
-        <div lang="en" className="pt-[60px] flex w-full">
+        <div lang="en" className="flex w-full">
             <aside>
                 <SideArea />
             </aside>
