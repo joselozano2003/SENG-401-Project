@@ -27,7 +27,7 @@ const formSchema = z
             message: "Password must be at least 6 characters.",
         }),
     })
-    
+
 
 export default function LoginForm() {
 
@@ -56,7 +56,7 @@ export default function LoginForm() {
                     <FormItem>
                         <FormLabel>Username</FormLabel>
                         <FormControl>
-                            <Input placeholder="shadcn" {...field} />
+                            <Input type="email" placeholder="Eg: james.carter@ucalgary.ca" {...field} />
                         </FormControl>
                         <FormMessage />
                     </FormItem>
@@ -70,7 +70,7 @@ export default function LoginForm() {
                     <FormItem>
                         <FormLabel>Password</FormLabel>
                         <FormControl>
-                            <Input {...field} />
+                            <Input type="password" {...field} />
                         </FormControl>
                         <FormMessage />
                     </FormItem>
