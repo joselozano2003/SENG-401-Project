@@ -20,6 +20,12 @@ import { Label } from "@/components/ui/label"
 
 const formSchema = z.
     object({
+        name: z.string().min(1, {
+            message: "First Name is required.",
+        }),
+        lastname: z.string().min(1, {
+            message: "Last Name is required.",
+        }),
         username: z.string().email({
             message: "Username must be a valid email.",
         }),
@@ -40,8 +46,11 @@ export default function RegisterForm() {
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
+            name: "",
+            lastname: "",
             username: "",
             password: "",
+            confirmPassword: "",
         },
     });
 
@@ -55,6 +64,34 @@ export default function RegisterForm() {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <div className="flex flex-row gap-2">
+                    <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>First Name</FormLabel>
+                                <FormControl>
+                                    <Input type="text" placeholder="Eg: James" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <FormField
+                        control={form.control}
+                        name="lastname"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormLabel>Last Name</FormLabel>
+                                <FormControl>
+                                    <Input type="text" placeholder="Eg: Carter" {...field} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                </div>
                 <FormField
                     control={form.control}
                     name="username"
@@ -68,6 +105,7 @@ export default function RegisterForm() {
                         </FormItem>
                     )}
                 />
+               
                 <FormField
                     control={form.control}
                     name="password"
