@@ -1,5 +1,6 @@
 import { Button } from "../ui/button";
 import MovingText from "./MovingText";
+import Link from "next/link";
 
 export default async function Hero() {
     return (
@@ -8,7 +9,9 @@ export default async function Hero() {
             <div className="flex flex-row">
             <MovingText /> <p>a Tutor</p>
             </div>
-            <Button>Get Started</Button>
+            <Link href="/feed">
+                <Button size={"default"}>Get Started</Button>
+            </Link>
        </div>
     )
 }
