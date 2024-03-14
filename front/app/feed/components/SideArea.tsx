@@ -45,7 +45,7 @@ export default function SideArea() {
                         "bg-primary": pathname === "/feed/availability"
                     })}>
                         <Image src={Calendar} alt="calendar" className="w-14" />
-                        <p className="leading-7">Edit Availability</p>
+                        <p className="leading-7">Student Posts</p>
                     </div>
                 </Link>
                 <Separator className="border-spacing-1 border-b border-gray-200" />
