@@ -19,8 +19,9 @@ public class LoginController {
     }
 
     @PostMapping
-    public String postMethodName(@RequestBody LoginUser entity) {
-        return "Not implemented yet";
+    public LoginUser loginUser(@RequestBody LoginUser user) {
+        LoginUser userInfo = loginService.loginUser(user);
+        return userInfo;
     }
     
 
