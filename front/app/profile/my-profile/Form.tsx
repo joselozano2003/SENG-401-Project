@@ -17,6 +17,8 @@ import {
 import { Input } from "@/components/ui/input"
 
 import { Label } from "@/components/ui/label"
+import { TutorInfo } from "@/lib/types";
+import { Textarea } from "@/components/ui/textarea";
 
 const formSchema = z.
     object({
@@ -29,28 +31,24 @@ const formSchema = z.
         email: z.string().email({
             message: "Username must be a valid email.",
         }),
-        password: z.string().min(6, {
-            message: "Password must be at least 6 characters.",
-        }),
-        confirmPassword: z.string().min(6, {
-            message: "Password must be at least 6 characters.",
-        }),
+        bio: z.string().max(500, { message: "Bio must be less than 500 characters." }),
+        
     })
-    .refine(data => data.password === data.confirmPassword, {
-        message: "Passwords do not match",
-        path: ["confirmPassword"],
-    });
 
-export default function RegisterForm() {
+
+interface Props {
+    data: TutorInfo
+}
+
+export default function ProfileForm( { data } : Props ) {
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            name: "",
-            lastname: "",
-            email: "",
-            password: "",
-            confirmPassword: "",
+            name: data.firstName,
+            lastname: data.lastName,
+            email: data.email,
+            bio: data.bio,
         },
     });
 
@@ -72,7 +70,7 @@ export default function RegisterForm() {
                             <FormItem>
                                 <FormLabel>First Name</FormLabel>
                                 <FormControl>
-                                    <Input type="text" placeholder="Eg: James" {...field} />
+                                    <Input type="text" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -85,7 +83,7 @@ export default function RegisterForm() {
                             <FormItem>
                                 <FormLabel>Last Name</FormLabel>
                                 <FormControl>
-                                    <Input type="text" placeholder="Eg: Carter" {...field} />
+                                    <Input type="text" {...field} />
                                 </FormControl>
                                 <FormMessage />
                             </FormItem>
@@ -97,43 +95,30 @@ export default function RegisterForm() {
                     name="email"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Username</FormLabel>
+                            <FormLabel>Email</FormLabel>
                             <FormControl>
-                                <Input type="email" placeholder="Eg: james.carter@ucalgary.ca" {...field} />
+                                <Input type="email" {...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
-               
                 <FormField
                     control={form.control}
-                    name="password"
+                    name="bio"
                     render={({ field }) => (
                         <FormItem>
-                            <FormLabel>Password</FormLabel>
+                            <FormLabel>Bio</FormLabel>
                             <FormControl>
-                                <Input type="password" {...field} />
+                                <Textarea className="min-h-[150px]"{...field} />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
-
-                <FormField
-                    control={form.control}
-                    name="confirmPassword"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormLabel>Confirm Password</FormLabel>
-                            <FormControl>
-                                <Input type="password" {...field} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <Button type="submit">Submit</Button>
+                <div className="flex justify-center">
+                    <Button type="submit">Update</Button>
+                </div>
             </form>
         </Form>
     )

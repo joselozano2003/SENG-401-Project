@@ -2,6 +2,8 @@ import Image, { StaticImageData } from "next/image";
 import Profile from "@/public/icons/profile.jpg"
 import Link from "next/link";
 
+import { TutorInfo } from "@/lib/types"
+
 import { Badge } from "@/components/ui/badge"
 
 
@@ -15,17 +17,10 @@ export default async function Page({ params }: Props) {
 
     const tutorId = params.id;
 
-    interface TutorInfo {
-        name: string,
-        email: string,
-        image: any
-        bio?: string
-        tags?: string[]
-    }
-
     // Sample variable
     const tutorInfo: TutorInfo = {
-        name: "John Doe",
+        firstName: "John",
+        lastName: "Doe",
         email: "john.doe@gmail.com",
         image: Profile,
         bio: "Hi, I am Joe Doe. I am a tutor at XYZ. I have been teaching for 5 years. I have a degree in Computer Science. I am passionate about teaching and helping students. I am available for tutoring on weekdays and weekends. I am also available for online tutoring. I am looking forward to helping you.",
@@ -36,7 +31,7 @@ export default async function Page({ params }: Props) {
 
     return (
         <div className="flex items-center w-full flex-col p-5">
-            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">{tutorInfo.name}</h1>
+            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">{tutorInfo.firstName} {tutorInfo.lastName}</h1>
             {/* <p>Tutor ID: {tutorId}</p> This is just for testing */}
             <div className="flex flex-wrap items-center justify-center">
                 {tutorInfo.tags && tutorInfo.tags.map((tag, index) => (
