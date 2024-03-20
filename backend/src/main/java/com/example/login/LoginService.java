@@ -14,11 +14,8 @@ public class LoginService {
         this.loginRepository = loginRepository;
     }
 
-    public LoginUser loginUser(LoginUser user) {
+    public Optional<LoginUser> loginUser(LoginUser user) {
         Optional<LoginUser> userOptional = loginRepository.findUserByEmail(user.getEmail());
-        if (userOptional.isEmpty()){
-            throw new IllegalStateException("User does not exist");
-        }
-        return userOptional.get();
+        return userOptional;
     }
 }

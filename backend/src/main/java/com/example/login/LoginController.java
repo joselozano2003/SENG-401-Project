@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.user.LoginUser;
 
+import java.util.Optional;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -20,8 +22,17 @@ public class LoginController {
 
     @PostMapping
     public LoginUser loginUser(@RequestBody LoginUser user) {
-        LoginUser userInfo = loginService.loginUser(user);
-        return userInfo;
+        Optional<LoginUser> userOptional = loginService.loginUser(user);
+        if (userOptional.isEmpty()){
+            throw new IllegalStateException("User does not exist");
+        }
+        LoginUser userInfo = userOptional.get();
+        if (user.getPassword().equals(userInfo.getPassword())){
+            return userInfo;
+        } 
+        else {
+            throw new IllegalStateException("Password is incorrect");
+        }
     }
     
 
