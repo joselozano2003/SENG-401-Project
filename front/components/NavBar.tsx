@@ -10,6 +10,7 @@ export default async function NavBar() {
                 </Link>
                 
             </div>
+            
             <div>
                 <Link href={"/login"}>
                     <Button className="text-black" variant={"outline"}>Log In</Button>

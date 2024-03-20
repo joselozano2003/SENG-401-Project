@@ -5,7 +5,7 @@ export default function CardsPage() {
   return (
     <div className="flex flex-col justify-center items-center space-y-4 h-full overflow-y-auto">
       {posts.map((card) => (
-        <Card key={card.id} className="max-w-md">
+        <Card key={card.id} className="w-full max-w-md">
           <CardHeader>
             <CardTitle>{card.title}</CardTitle>
             <CardDescription>{card.description}</CardDescription>

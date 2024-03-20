@@ -27,4 +27,16 @@ export const posts = [
       description: "Tutoring for the most complicated comp sci courses!",
       content: "I am offering tutoring services for any comp sci related courses, please hit me up at prof@gmail.com",
     },
+    {
+        id: 4,
+        title: "SENG 256",
+        description: "seng 256 tutoring",
+        content: "Email me at hotmail@gmail.com for more info",
+    },
+    {
+        id: 5,
+        title: "CHEM 377",
+        description: "Chemistry tutoring of all kinds available!",
+        content: "Our tutoring services for chemistry and science related courses are top of the line! email us at chem@gmail.com",
+    },
   ];

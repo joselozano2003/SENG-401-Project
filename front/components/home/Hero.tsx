@@ -12,6 +12,9 @@ export default async function Hero() {
             <Link href="/feed">
                 <Button size={"default"}>Get Started</Button>
             </Link>
+            <Link href="/student-home-page">
+                <Button size={"default"}>Go to student home page</Button>
+            </Link>
        </div>
     )
 }
