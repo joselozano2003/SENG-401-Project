@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table
-class TutorModel {
+public class TutorModel {
     @Id
     @SequenceGenerator(
         name = "tutor_sequence",
@@ -20,18 +20,20 @@ class TutorModel {
         strategy = GenerationType.SEQUENCE,
         generator = "tutor_sequence"
     )
-    private Long id;
-    private String name;
-    private String subject;
-    private String email;
-    private String phone;
+    private Long tutorId;
+    private String[] ableToTeach;
+    private int trainingMetric;
+    private int userRating;
+    private String bio;
 
-    public TutorModel(Long id, String name, String subject, String email, String phone) {
-        this.id = id;
-        this.name = name;
-        this.subject = subject;
-        this.email = email;
-        this.phone = phone;
+    public TutorModel(Long tutorId, String[] ableToTeach,
+                      int trainingMetric, int userRating, String bio) {
+        this.tutorId = tutorId;
+        this.ableToTeach=ableToTeach;
+        this.trainingMetric=trainingMetric;
+        this.userRating=userRating;
+        this.bio=bio;
+
     }
 
     public Long getId() {
