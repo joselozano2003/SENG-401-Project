@@ -1,11 +1,8 @@
 package com.example.tutor;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
 
 @Entity
 @Table
@@ -21,42 +18,37 @@ public class TutorModel {
         generator = "tutor_sequence"
     )
     private Long tutorId;
-    private String[] ableToTeach;
+
+    @ElementCollection
+    private ArrayList<String> ableToTeach;
     private int trainingMetric;
     private int userRating;
     private String bio;
 
-    public TutorModel(Long tutorId, String[] ableToTeach,
+    public TutorModel(Long tutorId, ArrayList<String> ableToTeach,
                       int trainingMetric, int userRating, String bio) {
         this.tutorId = tutorId;
-        this.ableToTeach=ableToTeach;
+        this.ableToTeach=new ArrayList<String>();
         this.trainingMetric=trainingMetric;
         this.userRating=userRating;
         this.bio=bio;
+        this.ableToTeach.addAll(ableToTeach);
 
     }
 
     public Long getId() {
-        return id;
+        return tutorId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.tutorId = id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public ArrayList<String> getAbleToTeach(){return ableToTeach;}
+    public void setAbleToTeach(ArrayList<String> list){ this.ableToTeach.addAll(list);}
+    public void addSubject(String subject){ this.ableToTeach.add(subject);  }
 
-    public String getSubject() {
-        return subject;
-    }
+    public void removeSubjects(ArrayList<String> remove){ this.ableToTeach.removeAll(remove);}
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
+    public void removeSubject(String remove){ this.ableToTeach.remove(remove);}
 }

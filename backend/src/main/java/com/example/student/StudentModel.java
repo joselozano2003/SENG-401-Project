@@ -1,11 +1,9 @@
 package com.example.student;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 
 @Entity
 @Table
@@ -21,12 +19,14 @@ public class StudentModel {
             generator = "tutor_sequence"
     )
     private Long studentId;
-    private String[] subjectList;
+    @ElementCollection
+    private ArrayList<String> subjectList;
 
 
-    public StudentModel(Long id,  String[] subjectList) {
+    public StudentModel(Long id,  ArrayList<String> subjectList) {
         this.studentId = id;
-        this.subjectList = subjectList;
+        this.subjectList = new ArrayList<String>();
+        this.subjectList.addAll(subjectList);
 
     }
 
@@ -34,19 +34,18 @@ public class StudentModel {
         return studentId;
     }
 
-    public void setId(Long id) {
+    public void setId(Long studentId) {
         this.studentId = studentId;
     }
 
-    public String[] getSubjectList() {
+    public ArrayList<String> getSubjectList() {
         return subjectList;
     }
+    public void setSubjectList(ArrayList<String> subjectList) {this.subjectList.addAll(subjectList);}
 
-    public String getEmail() {
-        return email;
-    }
+    public void addSubject(String subject){ this.subjectList.add(subject);  }
 
-    public String getPhone() {
-        return phone;
-    }
+    public void removeSubjects(ArrayList<String> remove){ this.subjectList.removeAll(remove);}
+
+    public void removeSubject(String remove){ this.subjectList.remove(remove);}
 }
