@@ -28,7 +28,7 @@ public class LoginUser {
     private boolean isTutor;
     private boolean isStudent;
 
-    private LoginUser(){
+    public LoginUser(){
 
     }
 
