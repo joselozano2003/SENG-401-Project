@@ -1,15 +1,12 @@
 package com.example.tutor;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
 
 @Entity
 @Table
-class TutorModel {
+public class TutorModel {
     @Id
     @SequenceGenerator(
         name = "tutor_sequence",
@@ -20,41 +17,38 @@ class TutorModel {
         strategy = GenerationType.SEQUENCE,
         generator = "tutor_sequence"
     )
-    private Long id;
-    private String name;
-    private String subject;
-    private String email;
-    private String phone;
+    private Long tutorId;
 
-    public TutorModel(Long id, String name, String subject, String email, String phone) {
-        this.id = id;
-        this.name = name;
-        this.subject = subject;
-        this.email = email;
-        this.phone = phone;
+    @ElementCollection
+    private ArrayList<String> ableToTeach;
+    private int trainingMetric;
+    private int userRating;
+    private String bio;
+
+    public TutorModel(Long tutorId, ArrayList<String> ableToTeach,
+                      int trainingMetric, int userRating, String bio) {
+        this.tutorId = tutorId;
+        this.ableToTeach=new ArrayList<String>();
+        this.trainingMetric=trainingMetric;
+        this.userRating=userRating;
+        this.bio=bio;
+        this.ableToTeach.addAll(ableToTeach);
+
     }
 
     public Long getId() {
-        return id;
+        return tutorId;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.tutorId = id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public ArrayList<String> getAbleToTeach(){return ableToTeach;}
+    public void setAbleToTeach(ArrayList<String> list){ this.ableToTeach.addAll(list);}
+    public void addSubject(String subject){ this.ableToTeach.add(subject);  }
 
-    public String getSubject() {
-        return subject;
-    }
+    public void removeSubjects(ArrayList<String> remove){ this.ableToTeach.removeAll(remove);}
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
+    public void removeSubject(String remove){ this.ableToTeach.remove(remove);}
 }

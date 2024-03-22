@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import SideArea from "./components/SideArea";
 
+import { Toaster } from "@/components/ui/toaster"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,13 +17,14 @@ export default function RootLayout({
     }>) {
 
     return (
-        <div lang="en" className="pt-[60px] flex w-full">
+        <div lang="en" className="flex w-full">
             <aside>
                 <SideArea />
             </aside>
             <div className="pt-[20px] w-full">
                 {children}
             </div>
+            <Toaster />
         </div>
     );
 }
