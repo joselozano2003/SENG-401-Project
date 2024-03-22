@@ -22,6 +22,8 @@ public class StudentModel {
     @ElementCollection
     private ArrayList<String> subjectList;
 
+    public StudentModel() {
+    }
 
     public StudentModel(Long id,  ArrayList<String> subjectList) {
         this.studentId = id;

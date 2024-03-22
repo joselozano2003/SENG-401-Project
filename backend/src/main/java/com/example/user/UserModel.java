@@ -29,6 +29,9 @@ public class UserModel {
     private boolean isStudent;
     private String displayName;
 
+    public UserModel() {
+    }
+
     public UserModel(Long userId, String firstName, String lastName,
                      String email, String username, String password,
                      String displayName, boolean isStudent, boolean isTutor) {

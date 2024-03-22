@@ -26,6 +26,9 @@ public class ReviewModel {
 
     long tutorId;
 
+    public ReviewModel() {
+    }
+
     public ReviewModel(String comment, String subject, int score, long tutorId) {
         this.comment=comment;
         this.subject=subject;

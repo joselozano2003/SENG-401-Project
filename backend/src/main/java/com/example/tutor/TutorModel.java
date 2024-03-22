@@ -25,6 +25,9 @@ public class TutorModel {
     private int userRating;
     private String bio;
 
+    public TutorModel() {
+    }
+
     public TutorModel(Long tutorId, ArrayList<String> ableToTeach,
                       int trainingMetric, int userRating, String bio) {
         this.tutorId = tutorId;
