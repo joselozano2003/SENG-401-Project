@@ -24,7 +24,6 @@ public class RegisterService {
     public Optional<LoginUser> registerUser(LoginUser user) {
         Optional<LoginUser> userOptional = registerRepository.findUserByEmail(user.getEmail());
         if (userOptional.isEmpty()){
-            registerRepository.save(user);
             if (user.isTutor()){
                 TutorModel tutor = new TutorModel();
                 tutor.setId(user.getId());
@@ -32,6 +31,9 @@ public class RegisterService {
                 tutor.setLastName(user.getLastName());
                 tutor.setPassword(user.getPassword());
                 tutor.setEmail(user.getEmail());
+                tutor.setBio("Hello, I am a tutor");
+                tutor.setIsTutor(user.isTutor().toString());
+                tutor.setIsStudent(user.isStudent().toString());
                 tutorRepository.save(tutor);
             }
             else if (user.isStudent()){
@@ -41,6 +43,8 @@ public class RegisterService {
                 student.setLastName(user.getLastName());
                 student.setPassword(user.getPassword());
                 student.setEmail(user.getEmail());
+                student.setIsTutor(user.isTutor().toString());
+                student.setIsStudent(user.isStudent().toString());
                 studentRepository.save(student);
             }
             else{
