@@ -3,8 +3,6 @@ package com.example.login;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.user.LoginUser;
-
 import java.util.Optional;
 
 import org.springframework.web.bind.annotation.PostMapping;

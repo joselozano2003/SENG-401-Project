@@ -12,7 +12,7 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
 @Entity
-@Table
+@Table(name = "post")
 public class PostModel {
     @Id
     @SequenceGenerator(
@@ -25,11 +25,12 @@ public class PostModel {
         generator = "review_sequence"
     )
     private Long postId;
+    private Long creatorId;
     private String title;
     private String content;
     @ElementCollection
     private ArrayList<String> tags;
-    private Long creatorId;
+    
 
     public PostModel() {
     }

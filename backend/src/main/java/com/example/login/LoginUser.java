@@ -1,25 +1,30 @@
-package com.example.user;
+package com.example.login;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Inheritance;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
+import jakarta.persistence.InheritanceType;;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 @Table(name = "loginuser")
 public class LoginUser {
     @Id
     @SequenceGenerator(
-        name = "tutor_sequence",
-        sequenceName = "tutor_sequence",
+        name = "user_sequence",
+        sequenceName = "user_sequence",
         allocationSize = 1
     )
     @GeneratedValue(
         strategy = GenerationType.SEQUENCE,
-        generator = "tutor_sequence"
+        generator = "user_sequence"
     )
+    @Column(name = "user_id")
     private Long id;
     private String firstName;
     private String lastName;
@@ -40,11 +45,6 @@ public class LoginUser {
         this.isTutor = isTutor;
         this.isStudent = isStudent;
     }
-
-    // public LoginUser(String email, String password) {
-    //     this.email = email;
-    //     this.password = password;
-    // }
 
     public Long getId() {
         return id;

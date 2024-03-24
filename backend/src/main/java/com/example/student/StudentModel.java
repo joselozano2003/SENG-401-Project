@@ -2,52 +2,38 @@ package com.example.student;
 
 import jakarta.persistence.*;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import com.example.login.LoginUser;
+
 @Entity
-@Table
-public class StudentModel {
-    @Id
-    @SequenceGenerator(
-            name = "tutor_sequence",
-            sequenceName = "tutor_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "tutor_sequence"
-    )
-    private Long studentId;
+@Table(name = "student")
+public class StudentModel extends LoginUser {
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private LoginUser user;
     @ElementCollection
-    private ArrayList<String> subjectList;
+    private ArrayList<String> whatHelp;
 
     public StudentModel() {
     }
 
-    public StudentModel(Long id,  ArrayList<String> subjectList) {
-        this.studentId = id;
-        this.subjectList = new ArrayList<String>();
-        this.subjectList.addAll(subjectList);
-
-    }
-
     public Long getId() {
-        return studentId;
+        return super.getId();
     }
 
     public void setId(Long studentId) {
-        this.studentId = studentId;
+        super.setId(studentId);
     }
 
-    public ArrayList<String> getSubjectList() {
-        return subjectList;
+    public ArrayList<String> getHelpList() {
+        return whatHelp;
     }
-    public void setSubjectList(ArrayList<String> subjectList) {this.subjectList.addAll(subjectList);}
+    public void setHelpList(ArrayList<String> subjectList) {this.whatHelp.addAll(subjectList);}
 
-    public void addSubject(String subject){ this.subjectList.add(subject);  }
+    public void addHelp(String subject){ this.whatHelp.add(subject);  }
 
-    public void removeSubjects(ArrayList<String> remove){ this.subjectList.removeAll(remove);}
+    public void removeHelps(ArrayList<String> remove){ this.whatHelp.removeAll(remove);}
 
-    public void removeSubject(String remove){ this.subjectList.remove(remove);}
+    public void removeHelp(String remove){ this.whatHelp.remove(remove);}
 }

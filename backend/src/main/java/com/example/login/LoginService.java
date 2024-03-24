@@ -4,8 +4,6 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.example.user.LoginUser;
-
 @Service
 public class LoginService {
     private final LoginRepository loginRepository;

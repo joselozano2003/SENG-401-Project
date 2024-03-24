@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.util.ArrayList;
 
 @Entity
-@Table
+@Table(name = "review")
 public class ReviewModel {
     @Id
     @SequenceGenerator(
@@ -19,22 +19,14 @@ public class ReviewModel {
     )
     private Long reviewId;
 
+    @Column(name = "tutor_id")
+    private Long tutorId;
+
+    int score;
     String comment;
     String subject;
 
-    int score;
-
-    long tutorId;
-
     public ReviewModel() {
-    }
-
-    public ReviewModel(String comment, String subject, int score, long tutorId) {
-        this.comment=comment;
-        this.subject=subject;
-        this.score=score;
-        this.tutorId=tutorId;
-
     }
 
     public Long getId() {
@@ -53,14 +45,26 @@ public class ReviewModel {
         this.tutorId = id;
     }
 
-    public String getComment(){return comment;}
-    public void setComment(String comment){ this.comment=comment;}
+    public String getComment(){
+        return comment;
+    }
+    public void setComment(String comment){
+        this.comment=comment;
+    }
 
-    int getScore(){ return score;}
+    int getScore(){
+        return score;
+    }
 
-    void setScore(int score){this.score=score;}
+    void setScore(int score){
+        this.score=score;
+    }
 
-    public String getSubject(){return this.subject;}
+    public String getSubject(){
+        return this.subject;
+    }
 
-    void setSubject(String subject){this.subject=subject;}
+    void setSubject(String subject){
+        this.subject=subject;
+    }
 }
