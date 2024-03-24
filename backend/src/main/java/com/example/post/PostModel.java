@@ -16,13 +16,13 @@ import jakarta.persistence.Table;
 public class PostModel {
     @Id
     @SequenceGenerator(
-        name = "review_sequence",
-        sequenceName = "review_sequence",
+        name = "post_sequence",
+        sequenceName = "post_sequence",
         allocationSize = 1
     )
     @GeneratedValue(
         strategy = GenerationType.SEQUENCE,
-        generator = "review_sequence"
+        generator = "post_sequence"
     )
     private Long postId;
     private Long creatorId;
