@@ -30,14 +30,14 @@ public class LoginUser {
     private String lastName;
     private String email;
     private String password;
-    private boolean isTutor;
-    private boolean isStudent;
+    private Boolean isTutor;
+    private Boolean isStudent;
 
     public LoginUser(){
 
     }
 
-    public LoginUser(String firstName, String lastName, String email, String password, boolean isTutor, boolean isStudent) {
+    public LoginUser(String firstName, String lastName, String email, String password, Boolean isTutor, Boolean isStudent) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -87,19 +87,19 @@ public class LoginUser {
         this.password = password;
     }
 
-    public boolean isTutor() {
+    public Boolean isTutor() {
         return isTutor;
     }
 
-    public void setTutor(boolean isTutor) {
-        this.isTutor = isTutor;
+    public void setIsTutor(String isTutor) {
+        this.isTutor = Boolean.parseBoolean(isTutor);
     }
 
-    public boolean isStudent() {
+    public Boolean isStudent() {
         return isStudent;
     }
 
-    public void setStudent(boolean isStudent) {
-        this.isStudent = isStudent;
+    public void setIsStudent(String isStudent) {
+        this.isStudent = Boolean.parseBoolean(isStudent);
     }
 }
