@@ -33,13 +33,25 @@ public class TutorModel extends LoginUser{
         super.setId(id);
     }
 
-    public ArrayList<String> getAbleToTeach(){return ableToTeach;}
-    public void setAbleToTeach(ArrayList<String> list){ this.ableToTeach.addAll(list);}
-    public void addSubject(String subject){ this.ableToTeach.add(subject);  }
+    public ArrayList<String> getAbleToTeach(){
+        return ableToTeach;
+    }
 
-    public void removeSubjects(ArrayList<String> remove){ this.ableToTeach.removeAll(remove);}
+    public void setAbleToTeach(ArrayList<String> list){
+        this.ableToTeach.addAll(list);
+    }
 
-    public void removeSubject(String remove){ this.ableToTeach.remove(remove);}
+    public void addSubject(String subject){ 
+        this.ableToTeach.add(subject);
+    }
+
+    public void removeSubjects(ArrayList<String> remove){
+         this.ableToTeach.removeAll(remove);
+    }
+
+    public void removeSubject(String remove){
+        this.ableToTeach.remove(remove);
+    }
 
     public void setUserRating() {
         this.userRating = totalStarts / ratingCount;
