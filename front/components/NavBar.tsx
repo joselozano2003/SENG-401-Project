@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
+import AuthButton from "./AuthButton";
 
 export default async function NavBar() {
     return (
@@ -12,9 +13,10 @@ export default async function NavBar() {
             </div>
             
             <div>
-                <Link href={"/login"}>
-                    <Button className="text-black" variant={"outline"}>Log In</Button>
-                </Link>
+                {/* <Link href={"/login"}> */}
+                    {/* <Button className="text-black" variant={"outline"}>Log In</Button> */}
+                    <AuthButton />
+                {/* </Link> */}
             </div>
         </div>
     )
