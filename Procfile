@@ -1,0 +1,1 @@
+web: java -jar backend/target/tutoringBackEnd-0.0.1-SNAPSHOT.jar
