@@ -2,17 +2,17 @@
 
 # Variables
 DB_NAME="mydatabase"
-DB_USER="postgres"
-DB_PASS="26102002"
+DB_USER="myuser"
+DB_PASS="mypassword"
 
 # Create a new PostgreSQL database
-echo "Creating database: TUTORING_DB"
-psql -U postgres -c "CREATE DATABASE DB_NAME;"
+echo "Creating database: $TUTORING_DB"
+psql -U postgres -c "CREATE DATABASE $DB_NAME;"
 
 # Create a new user and grant privileges
-# echo "Creating user: $DB_USER"
-# psql -U postgres -c "CREATE USER $DB_USER WITH ENCRYPTED PASSWORD '$DB_PASS';"
-# psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USER;"
+echo "Creating user: $DB_USER"
+psql -U postgres -c "CREATE USER $DB_USER WITH ENCRYPTED PASSWORD '$DB_PASS';"
+psql -U postgres -c "GRANT ALL PRIVILEGES ON DATABASE $DB_NAME TO $DB_USER;"
 
 # Connect to the database and create a table
 echo "Creating table 'users' in database: $DB_NAME"

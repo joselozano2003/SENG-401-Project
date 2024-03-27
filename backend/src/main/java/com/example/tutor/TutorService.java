@@ -1,7 +1,5 @@
 package com.example.tutor;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,11 +9,6 @@ public class TutorService {
 
     public TutorService(TutorRepository tutorRepository) {
         this.tutorRepository = tutorRepository;
-    }
-
-    public String addSubjects(List<String> subjects) {
-        
-        return new String("Subjects added");
     }
 
     public String addTutor(String entity) {
